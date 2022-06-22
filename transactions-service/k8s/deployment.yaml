@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: transactions
+spec:
+  selector:
+    matchLabels:
+      app: transactions
+  template:
+    metadata:
+      labels:
+        app: transactions
+    spec:
+      containers:
+      - name: transactions
+        image: piomin/transactions-service
+        env:
+          - name: KAFKA_URL
+            value: my-cluster-kafka-bootstrap:9092
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: transactions
+spec:
+  type: ClusterIP
+  selector:
+    app: transactions
+  ports:
+    - port: 8080
