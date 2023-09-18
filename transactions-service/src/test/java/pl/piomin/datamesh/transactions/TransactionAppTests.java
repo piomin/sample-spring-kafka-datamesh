@@ -18,8 +18,8 @@ public class TransactionAppTests {
     private static Network NET = Network.newNetwork();
 
     @Container
-    static KafkaContainer kafka = new KafkaContainer(DockerImageName.parse("confluentinc/cp-kafka:7.4.0"))
-            .withKraft()
+    static KafkaContainer kafka = new KafkaContainer(DockerImageName.parse("confluentinc/cp-kafka:6.2.1"))
+//            .withKraft()
             .withCreateContainerCmdModifier(cmd -> cmd.withName("broker"))
             .withNetwork(NET);
 

@@ -16,6 +16,7 @@
     </parent>
 
     <properties>
+        <ksqldb.version>0.26.0</ksqldb.version>
         <spring-cloud.version>2020.0.4</spring-cloud.version>
         <sonar.moduleKey>${project.artifactId}</sonar.moduleKey>
     </properties>
@@ -32,17 +33,17 @@
         <dependency>
             <groupId>io.confluent.ksql</groupId>
             <artifactId>ksqldb-api-client</artifactId>
-            <version>0.26.0</version>
+            <version>${ksqldb.version}</version>
         </dependency>
         <dependency>
             <groupId>io.confluent.ksql</groupId>
             <artifactId>ksqldb-udf</artifactId>
-            <version>0.26.0</version>
+            <version>${ksqldb.version}</version>
         </dependency>
         <dependency>
             <groupId>io.confluent.ksql</groupId>
             <artifactId>ksqldb-common</artifactId>
-            <version>0.26.0</version>
+            <version>${ksqldb.version}</version>
         </dependency>
 
         <dependency>
