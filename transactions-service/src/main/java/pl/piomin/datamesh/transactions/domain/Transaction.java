@@ -1,15 +1,9 @@
 package pl.piomin.datamesh.transactions.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import java.util.Date;
 
-@Entity
 public class Transaction {
 
-    @Id
-    @GeneratedValue
     private Long id;
     private int amount;
     private Date addDate;

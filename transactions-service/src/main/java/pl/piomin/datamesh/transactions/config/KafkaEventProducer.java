@@ -17,7 +17,7 @@ public class KafkaEventProducer {
     private static long transactionId = 0;
     private static final Random r = new Random();
 
-//    @Bean
+    @Bean
     public Supplier<Message<Transaction>> transactionsSupplier() {
         return () -> {
             Transaction t = new Transaction();

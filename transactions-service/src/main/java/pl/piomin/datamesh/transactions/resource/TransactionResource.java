@@ -1,19 +1,16 @@
 package pl.piomin.datamesh.transactions.resource;
 
 import io.confluent.ksql.api.client.Client;
-import io.confluent.ksql.api.client.ExecuteStatementResult;
 import io.confluent.ksql.api.client.Row;
 import io.confluent.ksql.api.client.StreamedQueryResult;
-import io.confluent.ksql.api.client.exception.KsqlClientException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import pl.piomin.datamesh.transactions.domain.Transaction;
-import pl.piomin.datamesh.transactions.repository.TransactionRepository;
 
-import javax.annotation.PostConstruct;
-import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
