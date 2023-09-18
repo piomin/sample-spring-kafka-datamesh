@@ -6,15 +6,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
-import org.springframework.scheduling.annotation.Async;
-import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Component;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
-@EnableAsync
 @Component
 public class KTableCreateListener implements ApplicationListener<ContextRefreshedEvent> {
 
@@ -26,7 +23,6 @@ public class KTableCreateListener implements ApplicationListener<ContextRefreshe
     }
 
     @Override
-    @Async
     public void onApplicationEvent(ContextRefreshedEvent event) {
         try {
             String sql = """

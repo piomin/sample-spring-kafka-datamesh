@@ -20,11 +20,12 @@ public class TransactionAppTests {
     @Container
     static KafkaContainer kafka = new KafkaContainer(DockerImageName.parse("confluentinc/cp-kafka:6.2.1"))
 //            .withKraft()
+            .withExposedPorts(9093, 9092)
             .withCreateContainerCmdModifier(cmd -> cmd.withName("broker"))
             .withNetwork(NET);
 
     @Container
-    static final GenericContainer ksqlServer = new GenericContainer("confluentinc/cp-ksql-server:latest")
+    static final GenericContainer ksqlServer = new GenericContainer("confluentinc/ksqldb-server:0.26.0")
             .dependsOn(kafka)
             .withExposedPorts(8088)
             .withNetwork(NET)
