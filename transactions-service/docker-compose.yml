@@ -8,7 +8,7 @@ services:
     environment:
       - KRAFT_CONTAINER_HOST_NAME=broker
   cp-ksql-server:
-    image: confluentinc/ksqldb-server:0.26.0
+    image: confluentinc/ksqldb-server:0.29.0
     depends_on:
       - broker
     ports:
