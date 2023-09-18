@@ -91,14 +91,6 @@
                         <image>sample-spring-kafka-datamesh/${project.artifactId}:${project.version}</image>
                     </to>
                 </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>dockerBuild</goal>
-                        </goals>
-                        <phase>package</phase>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
