@@ -17,8 +17,8 @@
     </parent>
 
     <properties>
-        <java.version>17</java.version>
         <spring-cloud.version>2020.0.4</spring-cloud.version>
+        <sonar.moduleKey>${project.artifactId}</sonar.moduleKey>
     </properties>
 
     <dependencies>
