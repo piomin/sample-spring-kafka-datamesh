@@ -16,7 +16,7 @@
 
     <properties>
         <ksqldb.version>0.26.0</ksqldb.version>
-        <spring-cloud.version>2020.0.4</spring-cloud.version>
+        <spring-cloud.version>2020.0.6</spring-cloud.version>
         <sonar.moduleKey>${project.artifactId}</sonar.moduleKey>
     </properties>
 
