@@ -1,0 +1,32 @@
+version: "3.8"
+services:
+  broker:
+    image: moeenz/docker-kafka-kraft:latest
+    restart: always
+    ports:
+      - "9092:9092"
+    environment:
+      - KRAFT_CONTAINER_HOST_NAME=broker
+  cp-ksql-server:
+    image: confluentinc/ksqldb-server:0.26.0
+    depends_on:
+      - broker
+    ports:
+      - "8088:8088"
+    environment:
+      KSQL_LISTENERS: http://0.0.0.0:8088
+      KSQL_BOOTSTRAP_SERVERS: broker:9092
+      KSQL_KSQL_LOGGING_PROCESSING_STREAM_AUTO_CREATE: "true"
+      KSQL_KSQL_LOGGING_PROCESSING_TOPIC_AUTO_CREATE: "true"
+  transaction-service:
+    image: sample-spring-kafka-datamesh/transactions-service:1.0-SNAPSHOT
+    depends_on:
+      - broker
+      - cp-ksql-server
+    ports:
+      - "8080:8080"
+    links:
+      - broker
+      - cp-ksql-server
+    environment:
+      KAFKA_URL: broker:9092
