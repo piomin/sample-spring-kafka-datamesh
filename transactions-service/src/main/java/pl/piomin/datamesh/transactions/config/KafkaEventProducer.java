@@ -27,7 +27,7 @@ public class KafkaEventProducer {
             t.setAmount(r.nextInt(1, 10000));
             Message<Transaction> o = MessageBuilder
                     .withPayload(t)
-                    .setHeader(KafkaHeaders.MESSAGE_KEY, new TransactionKey(t.getId()))
+                    .setHeader(KafkaHeaders.KEY, new TransactionKey(t.getId()))
                     .build();
             return o;
         };
