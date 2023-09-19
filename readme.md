@@ -7,6 +7,7 @@
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=piomin_sample-spring-kafka-datamesh&metric=coverage)](https://sonarcloud.io/dashboard?id=piomin_sample-spring-kafka-datamesh)
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=piomin_sample-spring-kafka-datamesh&metric=ncloc)](https://sonarcloud.io/dashboard?id=piomin_sample-spring-kafka-datamesh)
 
-```shell
-docker run -it --rm --name connect --network redpanda -p 8083:8083 -e BOOTSTRAP_SERVERS='rp-node-0:9092' -e GROUP_ID=1 -e CONFIG_STORAGE_TOPIC=my-connect-configs-2 -e OFFSET_STORAGE_TOPIC=my-connect-offsets-2 -e CLUSTER_ID=0 debezium/connect
-```
+In this project I'm demonstrating several features related to the integration between Kafka and Spring Boot for building microservice-based architecture.
+
+## Getting Started 
+1. How to run ksqldb server on Kubernetes and integrate Spring Boot with it: [Introduction to ksqlDB on Kubernetes with Spring Boot](https://piotrminkowski.com/2022/06/22/introduction-to-ksqldb-on-kubernetes-with-spring-boot/)
