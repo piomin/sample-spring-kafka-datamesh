@@ -48,7 +48,7 @@
         <dependency>
             <groupId>io.github.springwolf</groupId>
             <artifactId>springwolf-kafka</artifactId>
-            <version>0.14.0</version>
+            <version>0.15.1</version>
         </dependency>
         <dependency>
             <groupId>io.github.springwolf</groupId>
