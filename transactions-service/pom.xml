@@ -53,7 +53,7 @@
         <dependency>
             <groupId>io.github.springwolf</groupId>
             <artifactId>springwolf-ui</artifactId>
-            <version>1.13.0</version>
+            <version>1.14.0</version>
         </dependency>
 
         <dependency>
