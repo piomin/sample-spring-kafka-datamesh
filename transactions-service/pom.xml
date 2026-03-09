@@ -17,6 +17,7 @@
     <properties>
         <ksqldb.version>0.29.0</ksqldb.version>
         <spring-cloud.version>2025.1.1</spring-cloud.version>
+        <testcontainers.version>2.0.3</testcontainers.version>
         <sonar.moduleKey>${project.artifactId}</sonar.moduleKey>
     </properties>
 
@@ -73,14 +74,14 @@
         </dependency>
         <dependency>
             <groupId>org.testcontainers</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>1.21.4</version>
+            <artifactId>testcontainers-junit-jupiter</artifactId>
+            <version>${testcontainers.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.testcontainers</groupId>
-            <artifactId>kafka</artifactId>
-            <version>1.21.4</version>
+            <artifactId>testcontainers-kafka</artifactId>
+            <version>${testcontainers.version}</version>
             <scope>test</scope>
         </dependency>
 
