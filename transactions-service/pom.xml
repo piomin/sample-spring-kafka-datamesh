@@ -15,7 +15,7 @@
     </parent>
 
     <properties>
-        <ksqldb.version>0.29.0</ksqldb.version>
+        <ksqldb.version>8.1.1</ksqldb.version>
         <spring-cloud.version>2025.0.0</spring-cloud.version>
         <sonar.moduleKey>${project.artifactId}</sonar.moduleKey>
     </properties>
@@ -33,6 +33,12 @@
             <groupId>io.confluent.ksql</groupId>
             <artifactId>ksqldb-api-client</artifactId>
             <version>${ksqldb.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>io.confluent.resourcemanager</groupId>
+                    <artifactId>apiserver-client</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>io.confluent.ksql</groupId>
@@ -104,7 +110,7 @@
         <repository>
             <id>ksqlDB</id>
             <name>ksqlDB</name>
-            <url>https://ksqldb-maven.s3.amazonaws.com/maven/</url>
+            <url>https://packages.confluent.io/maven</url>
         </repository>
     </repositories>
 
