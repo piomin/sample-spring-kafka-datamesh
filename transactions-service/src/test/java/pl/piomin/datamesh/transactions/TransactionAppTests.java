@@ -19,13 +19,12 @@ public class TransactionAppTests {
     @Container
     @ServiceConnection
     static KafkaContainer kafka = new KafkaContainer(DockerImageName.parse("apache/kafka-native:3.8.0"))
-//            .withKraft()
-            .withExposedPorts(9093, 9092)
+            .withExposedPorts(9092)
             .withNetwork(Network.SHARED)
             .withNetworkAliases("broker");
 
     @Container
-    static final GenericContainer ksqlServer = new GenericContainer("confluentinc/ksqldb-server:0.26.0")
+    static final GenericContainer ksqlServer = new GenericContainer("confluentinc/ksqldb-server:0.29.0")
             .dependsOn(kafka)
             .withExposedPorts(8088)
             .withNetwork(Network.SHARED)
@@ -34,7 +33,7 @@ public class TransactionAppTests {
 
     @DynamicPropertySource
     static void kafkaProperties(DynamicPropertyRegistry registry) {
-//        registry.add("spring.kafka.bootstrap-servers", kafka::getBootstrapServers);
+        registry.add("spring.kafka.bootstrap-servers", kafka::getBootstrapServers);
         registry.add("spring.ksql-server.host", ksqlServer::getHost);
         registry.add("spring.ksql-server.port", () -> String.valueOf(ksqlServer.getMappedPort(8088)));
     }
