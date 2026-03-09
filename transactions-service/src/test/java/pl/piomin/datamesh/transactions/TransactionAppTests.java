@@ -20,7 +20,7 @@ public class TransactionAppTests {
 
     @Container
     @ServiceConnection
-    static KafkaContainer kafka = new KafkaContainer(DockerImageName.parse("confluentinc/cp-kafka:6.2.1"))
+    static KafkaContainer kafka = new KafkaContainer(DockerImageName.parse("confluentinc/cp-kafka:7.8.6"))
 //            .withKraft()
             .withExposedPorts(9093, 9092)
             .withCreateContainerCmdModifier(cmd -> cmd.withName("broker"))
