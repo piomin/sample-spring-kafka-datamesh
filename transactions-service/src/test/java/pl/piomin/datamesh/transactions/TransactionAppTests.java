@@ -10,25 +10,23 @@ import org.testcontainers.containers.Network;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import org.testcontainers.kafka.KafkaContainer;
+import org.testcontainers.utility.DockerImageName;
 
 @SpringBootTest(properties = "springwolf.enabled=false")
 @Testcontainers
 public class TransactionAppTests {
 
-
-
     @Container
-//    @ServiceConnection
-//    static KafkaContainer kafka = new KafkaContainer(DockerImageName.parse("confluentinc/cp-kafka:7.8.6"))
-    static KafkaContainer kafka = new KafkaContainer("apache/kafka-native:3.8.0")
-//            .withExposedPorts(9092)
-//            .withCreateContainerCmdModifier(cmd -> cmd.withName("broker"))
+    @ServiceConnection
+    static KafkaContainer kafka = new KafkaContainer(DockerImageName.parse("apache/kafka-native:3.8.0"))
+//            .withKraft()
+            .withExposedPorts(9093, 9092)
             .withNetwork(Network.SHARED)
             .withNetworkAliases("broker");
 
     @Container
     static final GenericContainer ksqlServer = new GenericContainer("confluentinc/ksqldb-server:0.26.0")
-//            .dependsOn(kafka)
+            .dependsOn(kafka)
             .withExposedPorts(8088)
             .withNetwork(Network.SHARED)
             .withEnv("KSQL_BOOTSTRAP_SERVERS", "broker:9092")
@@ -36,7 +34,7 @@ public class TransactionAppTests {
 
     @DynamicPropertySource
     static void kafkaProperties(DynamicPropertyRegistry registry) {
-        registry.add("spring.kafka.bootstrap-servers", kafka::getBootstrapServers);
+//        registry.add("spring.kafka.bootstrap-servers", kafka::getBootstrapServers);
         registry.add("spring.ksql-server.host", ksqlServer::getHost);
         registry.add("spring.ksql-server.port", () -> String.valueOf(ksqlServer.getMappedPort(8088)));
     }
