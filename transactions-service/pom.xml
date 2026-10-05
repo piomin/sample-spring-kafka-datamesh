@@ -38,6 +38,10 @@
                     <groupId>io.confluent.resourcemanager</groupId>
                     <artifactId>apiserver-client</artifactId>
                 </exclusion>
+                <exclusion>
+                    <groupId>io.confluent.cloud</groupId>
+                    <artifactId>events-schema</artifactId>
+                </exclusion>
             </exclusions>
         </dependency>
         <dependency>
