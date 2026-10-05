@@ -15,7 +15,7 @@
     </parent>
 
     <properties>
-        <ksqldb.version>8.1.1</ksqldb.version>
+        <ksqldb.version>8.3.2</ksqldb.version>
         <spring-cloud.version>2025.1.1</spring-cloud.version>
         <sonar.moduleKey>${project.artifactId}</sonar.moduleKey>
     </properties>
